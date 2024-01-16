@@ -22,13 +22,21 @@ function App() {
             } else if (route.name === 'Consultations') {
               iconName = focused ? 'stethoscope' : 'stethoscope-outline';
             }
-            return <Icon name={iconName} type="font-awesome-5" size={size} color={color} />;
+            return <Icon name={iconName} size={size} color={color} />;
           },
         })}
         tabBarOptions={{
-          activeTintColor: 'tomato',
-          inactiveTintColor: 'gray',
-        }}
+  activeTintColor: 'tomato',
+  inactiveTintColor: 'gray',
+  style: {
+    backgroundColor: 'white', // Change the background color
+    borderTopWidth: 0, // Remove top border
+  },
+  labelStyle: {
+    fontSize: 14, // Customize label font size
+  },
+}}
+
       >
         <Tab.Screen name="Appointments" component={AppointmentScreen} />
         <Tab.Screen name="Medications" component={MedicationScreen} />
