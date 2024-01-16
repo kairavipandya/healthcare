@@ -1,14 +1,14 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View } from 'react-native';
+import { Button, Text } from 'native-base';
 
 function MedicationScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Medication Tracking Screen</Text>
-      <Button
-        title="Go to Consultations"
-        onPress={() => navigation.navigate('Consultations')}
-      />
+      <Button onPress={() => navigation.navigate('Consultations')}>
+        <Text>Go to Consultations</Text>
+      </Button>
     </View>
   );
 }
