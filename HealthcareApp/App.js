@@ -16,11 +16,11 @@ function App() {
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
             if (route.name === 'Appointments') {
-              iconName = focused ? 'calendar' : 'calendar-outline';
+              iconName = 'calendar';
             } else if (route.name === 'Medications') {
-              iconName = focused ? 'pills' : 'pills-outline';
+              iconName = 'pills';
             } else if (route.name === 'Consultations') {
-              iconName = focused ? 'stethoscope' : 'stethoscope-outline';
+              iconName = 'stethoscope';
             }
             return <Icon name={iconName} type="font-awesome-5" size={size} color={color} />;
           },
@@ -28,6 +28,7 @@ function App() {
         tabBarOptions={{
           activeTintColor: 'tomato',
           inactiveTintColor: 'gray',
+          showLabel: true, // Set this to true to always show the labels
         }}
       >
         <Tab.Screen name="Appointments" component={AppointmentScreen} />
@@ -37,6 +38,5 @@ function App() {
     </NavigationContainer>
   );
 }
-
 
 export default App;
