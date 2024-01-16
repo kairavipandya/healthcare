@@ -1,7 +1,6 @@
-// In ConsultationScreen.js
 import React from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
-import moment from 'moment'; // Import Moment.js
+import { View, Text, FlatList, StyleSheet, SafeAreaView } from 'react-native'; // Import SafeAreaView
+import moment from 'moment';
 
 const consultations = [
   { id: '1', date: '2024-01-15', time: '10:00 AM', doctor: 'Dr. Smith' },
@@ -9,38 +8,22 @@ const consultations = [
   // Add more mockup consultation data here
 ];
 
-// In ConsultationScreen.js, add logic to differentiate past and upcoming consultations
-const currentDate = new Date();
-
-const upcomingConsultations = consultations.filter(consultation => {
-  const consultationDate = new Date(consultation.date);
-  return consultationDate >= currentDate;
-});
-
-const pastConsultations = consultations.filter(consultation => {
-  const consultationDate = new Date(consultation.date);
-  return consultationDate < currentDate;
-});
-
-
 function ConsultationScreen() {
-  const formattedDate = moment(item.date).format('MMM DD, YYYY');
-
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}> {/* Use SafeAreaView */}
       <Text>Upcoming Consultations</Text>
       <FlatList
         data={consultations}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
           <View style={styles.item}>
-            <Text>Date: {item.date}</Text>
+            <Text>Date: {moment(item.date).format('MMM DD, YYYY')}</Text>
             <Text>Time: {item.time}</Text>
             <Text>Doctor: {item.doctor}</Text>
           </View>
         )}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -49,6 +32,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: 20, // Adjust the spacing as needed
   },
   item: {
     padding: 10,

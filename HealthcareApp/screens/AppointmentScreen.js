@@ -1,9 +1,5 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
-import CustomButton from '../components/CustomButton'; // Import CustomButton
-import { commonStyles } from '../components/styles';
-import moment from 'moment'; // Import Moment.js
-
+import { View, Text, Button, FlatList, StyleSheet } from 'react-native';
 
 const appointments = [
   { id: '1', title: 'Dental Checkup', date: '2024-01-20' },
@@ -11,11 +7,9 @@ const appointments = [
   // Add more mockup data here
 ];
 
-function AppointmentScreen({ navigation }) { // Pass 'navigation' as a prop
-  const formattedDate = moment(item.date).format('MMM DD, YYYY');
-
+function AppointmentScreen({ navigation }) {
   return (
-    <View style={commonStyles.container}>
+    <View style={styles.container}>
       <FlatList
         data={appointments}
         keyExtractor={item => item.id}
@@ -26,15 +20,19 @@ function AppointmentScreen({ navigation }) { // Pass 'navigation' as a prop
           </View>
         )}
       />
-      <CustomButton // Use CustomButton component
+      <Button
         title="Add Appointment"
-        onPress={() => navigation.navigate('AddAppointment')}
+        onPress={() => {/* Add navigation or functionality to add appointments */}}
       />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 22,
+  },
   item: {
     padding: 10,
     fontSize: 18,
