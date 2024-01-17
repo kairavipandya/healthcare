@@ -5,6 +5,7 @@ import { Icon } from 'react-native-elements';
 import AppointmentScreen from './screens/AppointmentScreen';
 import MedicationScreen from './screens/MedicationScreen';
 import ConsultationScreen from './screens/ConsultationScreen';
+import HealthTrackerScreen from './screens/HealthTrackerScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,6 +23,9 @@ function App() {
             } else if (route.name === 'Consultations') {
               iconName = 'stethoscope';
             }
+           else if (route.name === 'Health Tracker') {
+              iconName = 'heart';
+            }
             return <Icon name={iconName} type="font-awesome-5" size={size} color={color} />;
           },
         })}
@@ -34,6 +38,7 @@ function App() {
         <Tab.Screen name="Appointments" component={AppointmentScreen} />
         <Tab.Screen name="Medications" component={MedicationScreen} />
         <Tab.Screen name="Consultations" component={ConsultationScreen} />
+        <Tab.Screen name="Health Tracker" component={HealthTrackerScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
