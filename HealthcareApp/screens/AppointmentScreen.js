@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, Button, FlatList, StyleSheet, TouchableOpacity, Modal } from 'react-native';
 import { Calendar, Agenda } from 'react-native-calendars';
+import AddAppointmentScreen from './AddAppointmentScreen'; // Import the AddAppointmentScreen
+
 
 const additionalAppointments = [
   { id: '3', title: 'Eye Examination', date: '2024-01-25', doctor: 'Dr. Anderson', notes: 'Check vision' },
@@ -181,7 +183,7 @@ function AppointmentScreen({ navigation }) {
 
       <Button
         title="Add Appointment"
-        onPress={() => navigation.navigate('AddAppointment')}
+        onPress={() => navigation.navigate('AddAppointment')} // Navigate to AddAppointmentScreen
         color="#994843"
       />
     </View>
