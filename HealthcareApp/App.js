@@ -8,6 +8,8 @@ import MedicationScreen from './screens/MedicationScreen';
 import ConsultationScreen from './screens/ConsultationScreen';
 import HealthTrackerScreen from './screens/HealthTrackerScreen';
 import AddAppointmentScreen from './screens/AddAppointmentScreen';
+import MedicalRecordsScreen from './screens/MedicalRecordsScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -21,7 +23,6 @@ function AppointmentStack() {
         options={{
           title: 'Appointments', // Set the header title for Appointments screen
           headerShown: false, // Hide the header for AddAppointment screen
-
         }}
       />
       <Stack.Screen
@@ -42,15 +43,21 @@ function App() {
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
+
             if (route.name === 'Appointments') {
-              iconName = 'calendar';
+              iconName = focused ? 'calendar-check' : 'calendar';
             } else if (route.name === 'Medications') {
               iconName = 'pills';
             } else if (route.name === 'Consultations') {
               iconName = 'stethoscope';
             } else if (route.name === 'Health Tracker') {
               iconName = 'heart';
+            } else if (route.name === 'Medical Records') {
+              iconName = 'file-medical';
+            } else if (route.name === 'Profile') {
+              iconName = 'user';
             }
+
             return <Icon name={iconName} type="font-awesome-5" size={size} color={color} />;
           },
         })}
@@ -67,6 +74,8 @@ function App() {
         <Tab.Screen name="Medications" component={MedicationScreen} />
         <Tab.Screen name="Consultations" component={ConsultationScreen} />
         <Tab.Screen name="Health Tracker" component={HealthTrackerScreen} />
+        <Tab.Screen name="Medical Records" component={MedicalRecordsScreen} />
+        <Tab.Screen name="Profile" component={ProfileScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
