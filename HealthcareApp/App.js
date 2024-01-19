@@ -10,6 +10,7 @@ import HealthTrackerScreen from './screens/HealthTrackerScreen';
 import AddAppointmentScreen from './screens/AddAppointmentScreen';
 import MedicalRecordsScreen from './screens/MedicalRecordsScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import HealthcareProviderDirectoryScreen from './screens/HealthcareProviderDirectoryScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -56,6 +57,8 @@ function App() {
               iconName = 'file-medical';
             } else if (route.name === 'Profile') {
               iconName = 'user';
+            } else if (route.name === 'Healthcare Directory') {
+              iconName = 'user';
             }
 
             return <Icon name={iconName} type="font-awesome-5" size={size} color={color} />;
@@ -76,6 +79,7 @@ function App() {
         <Tab.Screen name="Health Tracker" component={HealthTrackerScreen} />
         <Tab.Screen name="Medical Records" component={MedicalRecordsScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
+        <Tab.Screen name="Healthcare Directory" component={HealthcareProviderDirectoryScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
