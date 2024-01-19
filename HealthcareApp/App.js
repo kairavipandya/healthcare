@@ -10,13 +10,27 @@ import HealthTrackerScreen from './screens/HealthTrackerScreen';
 import AddAppointmentScreen from './screens/AddAppointmentScreen';
 
 const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator(); // Create a stack navigator
+const Stack = createStackNavigator();
 
 function AppointmentStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Appointments" component={AppointmentScreen} />
-      <Stack.Screen name="AddAppointment" component={AddAppointmentScreen} />
+      <Stack.Screen
+        name="Appointments"
+        component={AppointmentScreen}
+        options={{
+          title: 'Appointments', // Set the header title for Appointments screen
+          headerShown: false, // Hide the header for AddAppointment screen
+
+        }}
+      />
+      <Stack.Screen
+        name="AddAppointment"
+        component={AddAppointmentScreen}
+        options={{
+          title: 'Add Appointment', // Set the header title for AddAppointment screen
+        }}
+      />
     </Stack.Navigator>
   );
 }
